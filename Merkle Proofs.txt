@@ -3,20 +3,35 @@
  
 What are they used for? 
 
-	Merkle Trees are used to validate if a piece of info is valid for a dataset. They're able to check if the data input is in a dataset or if it's not. They're used for storing a lot of info in a more miniature representation. Just like a Hash is used to validate that the data sent is the same as the data received. Merkle proofs are used to make sure that the dataset is valid. This is useful in Eth storage on the blockchain because it gives the ability for the person that what's the storage data on the blockchain they don't need to send all the data. They send a hash of the data on the blockchain.
+	Merkle Trees are used to validate if a piece of info is valid for a dataset. They're able to check if the data input is 
+    in a dataset or if it's not. They're used for storing a lot of info in a more miniature representation. Just like a Hash 
+    is used to validate that the data sent is the same as the data received. Merkle proofs are used to make sure that the 
+    dataset is valid. This is useful in Eth storage on the blockchain because it gives the ability for the person that what's 
+    the storage data on the blockchain they don't need to send all the data. They send a hash of the data on the blockchain.
 
 What does this mean? 
 	
-	Merkle trees give the ability for contract providers to store data on the blockchain without needing to send too many transactions. Cutting down on the amount of gas required to spend to deploy a smart contract to the blockchain. 
+	Merkle trees give the ability for contract providers to store data on the blockchain without needing to send too many 
+    transactions. Cutting down on the amount of gas required to spend to deploy a smart contract to the blockchain. 
 
 Okay, but what are they, and how do I Implement them?
 
-	Merkle trees are implemented by hashing the information into a hash tree. This is done by hashing pairs pair of data using a hash algorithm. The most used algorithm to date is probably keccak256, which most Web3 deployments have already implemented.  
+	Merkle trees are implemented by hashing the information into a hash tree. This is done by hashing pairs pair of data 
+    using a hash algorithm. The most used algorithm to date is probably keccak256, which most Web3 deployments have already 
+    implemented.  
 
-	Note: You must have equal pairs, or the tree is not complete.(this is usually fixed in unequal sets by adding dummy data)  
+	Note: You must have equal pairs, or the tree is not complete.(this is usually fixed in unequal sets by adding 
+    dummy data)  
 	
-Next, you take those hashes and hash them together in pairs. This gives you the next step on the tree. You continue this process until you end up with a single hash as the end. Henceforth, A tree. This final hash is called the Merkle root. Because you guessed it, its the root of the tree.
+Next, you take those hashes and hash them together in pairs. This gives you the next step on the tree. You continue this 
+process until you end up with a single hash as the end. Henceforth, A tree. This final hash is called the Merkle root. Because 
+you guessed it, its the root of the tree.
 
-	We hashed all of the data together and got a root for our Merkle tree. We now have to be able to validate data. To do this, you need a Merkle proof. A Merkle proof is a representation of the input data given a tree. This allows you to complete the tree (getting the Merkle tree root). Merkle Proofs are like the path taken to get back to the root from the item that was given. When implemented, Merkle proofs are represented by an array of hashes that allow you to get back to the tree's root. If the data isn't inside the tree, you will not have any hashes.
+	We hashed all of the data together and got a root for our Merkle tree. We now have to be able to validate data. To do this, 
+    you need a Merkle proof. A Merkle proof is a representation of the input data given a tree. This allows you to complete the 
+    tree (getting the Merkle tree root). Merkle Proofs are like the path taken to get back to the root from the item that was 
+    given. When implemented, Merkle proofs are represented by an array of hashes that allow you to get back to the tree's root. 
+    If the data isn't inside the tree, you will not have any hashes.
 
-	On-chain, when supplying the Merkle proof and the data, following the Merkle proof will get you back to the tree's root. And hence allowing you to validate that your info is on the chain. 
+	On-chain, when supplying the Merkle proof and the data, following the Merkle proof will get you back to the tree's 
+    root. And hence allowing you to validate that your info is on the chain. 
