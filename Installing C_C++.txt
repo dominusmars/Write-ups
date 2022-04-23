@@ -21,7 +21,9 @@ Step One,
     This is probably the hardest part of the whole thing. Going through the internet and trying to find the compiler.
     There two main compilers, Clang and GCC. And the dozens of varations of these two. GCC is probably the one that
     most people use. as it comes with a ton of features and none of them were gonna go over. Just know its got a way
-    to compiler code and debug it. Download At (https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe) 
+    to compiler code and debug it. 
+    
+        Download At (https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe) 
 
 Step Two,
     Run the executable, this will bring up a install window. Follow the instructions and install the compiler onto
