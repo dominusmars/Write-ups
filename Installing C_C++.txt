@@ -1,0 +1,70 @@
+
+    Write Up about Install C onto a system.
+
+Why?
+    Because I got alittle to furstracted with the fact that the documentation on this stuff is all over the place
+    the amount of different ways to install C/C++ onto a system is too many. So Im going to write up a guide on
+    how to do it. Sit tight this will be a fun one. 
+
+What is C/C++
+    C is a language that allows you to access and change memory directly. In language like javascript, this isn't
+    really needed but sometimes you need a little more functionaity then what javascript can handle. And thats 
+    C/C++. 
+
+Whats needed?
+    - Visual Studio Code or perfered IDE/Notepad
+    - A Command Line for all your commands
+    - Patient, clearly something I lack
+    - and a reason. because tbh you couldve just coded it in node.
+
+Step One,
+    This is probably the hardest part of the whole thing. Going through the internet and trying to find the compiler.
+    There two main compilers, Clang and GCC. And the dozens of varations of these two. GCC is probably the one that most people use. as it comes with a ton of features and none of them were gonna go over. Just know its got a way to compiler code and debug it. Download At (https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe) 
+
+Step Two,
+    Run the executable, this will bring up a install window. Follow the instructions and install the compiler onto the system. This will create a folder containting the files needed in the  C:/msys64  Folder. 
+        
+        Note: this folder containts the binary of the compiler. You will need this infomation later on. 
+    
+    After running everything should be installed, if not do what every person does in this situation. Install it all over again.
+
+    When the installer is done this will open a Bash like thermal. In here you will need to run a few commands.
+    First run,
+        pacman -Syu
+    This will set up pacman and install system required files
+
+    Next run,
+        pacman -Su
+            Note: If the bash thermal closes you can find the executable for it in the C:/msys64 folder. its name should be mingw64.exe 
+    
+    Lastly run,
+        pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+
+    This will install the tools needed for C/C++ such as make and GCC
+
+
+Step Three,
+    Remember that just a step ago I told you that the binary for the compiler is in the C:/msys64. Yes? Well I lied. Well techinally I didnt, its a white lie. its actually located in the C:\msys64\mingw64\bin. the bin is for binary. 
+
+    Now on your system open up the Environment Varibles. These are Varibles that all the apps on your system have access to. By typing Environment variables into your search bar. this should bring up the system properties. 
+
+        Click on the Environment Varibles on thats close to the bottom of the window.
+    
+    Theses are your Environment Varibles, arent they very Environmentity? 
+
+    There are two selections, one for the specfic user usually on the top. And the other on the bottom for the rest of the system. We will be editing both of these because leaving out the system isnt fun. Plus you sign into another user you would not be able to access g++.
+
+        Note: If you dont want the other users on the system to access or have this set up. Dont edit the system Environment Varible
+
+Step Four,
+    Setting up the Environment Varibles. In the user selection scroll down until you see one that states Path. Highlight it with your mouse. Then click the edit bottom. This should bring up another window. In here are all your user paths. Click on new, creating a new line. then Paste the path to the compiler. C:\msys64\mingw64\bin
+    Then Click okay. 
+
+    Next, Do the same thing in the system selection. Once done, click okay on the other windows and you should be all set on the variables.
+
+Step Five,
+    Check. Checking is the most important step. Launch a command line and type
+
+    gcc -version
+
+    If something pops up thats not "is not recognized". Then congratz, you just install the things required to start writing in C
