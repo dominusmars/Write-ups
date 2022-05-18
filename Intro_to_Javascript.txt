@@ -33,6 +33,7 @@ Starting off
 
 
 Varibles
+
     there are a few basic variables in JS. the way JS handles variables might be a little different if you come from a
     lower level language. JS assumes the variable type on compile time. this means that all variable look like this
 
