@@ -1,0 +1,343 @@
+What is javascript?
+    
+    Application of JS
+
+        Javascript is a coding language, which is mostly used in web development. Over the last few years however,
+        JS has gained alot of traction in the desktop application space. For example, frameworks like Node.js give
+        developers the tools to create application without needing a browser Setting. Taking advanage of the V8
+        engine made by google, JS can be run natively on the desktop. Through package managers like NPM or yarn,
+        developers are also given a wide range of apis and packages that they can use in their application.
+
+    Javascript is a very versatile language. 
+
+        Like Java, Javascript is a Object Oriented Language. This means it realize heavily on Objects. And I do mean,
+        heavily. Nearly everything in JS is some sort of Object. Because of this JS can be relatively easier then other 
+        non-OOP languages.  
+            
+        Pros:
+            - Objects allow for easier data management.
+            - easy to learn and apply to alot of situations.
+            - alot of different packages
+            - pretty simple to understand syntax 
+            - very usesful in job application
+
+        Cons:
+            - no direct memory management (pointers and memory allocation is done by compiler)
+            - Promises are a bit hard to grasp
+            - the amount of framworks might get overwhelming.
+
+
+Starting off
+
+    Lets start off with some of the basics. I assume you already know what variables and some of the basics of coding.
+
+
+Varibles
+    there are a few basic variables in JS. the way JS handles variables might be a little different if you come from a
+    lower level language. JS assumes the variable type on compile time. this means that all variable look like this
+
+        var {name} = {value};
+
+        or in ES6,
+
+        let {name} = {value};
+    
+    JS also lets you declare constaints. these are variables thats values never change in the duration of the code. 
+    they look something like this
+
+        const {name} = {value};
+
+    the different variable types are.
+
+        types:
+
+            var a = 1;     //number
+            var a = true;  //boolean
+            var a = "str"; //string
+            var a = {};    //Object
+            var a = [];    //Object
+
+
+    Varibles can also change types entirely. Even through its possible, its not good pratice.
+
+        Ex:
+
+            var a = "apple";
+            a = 1;
+            console.log(a);
+
+            this will log 1 to the console.
+    
+    Numbers:
+
+        Number is primitive wrapper object thats used to store any number.
+        
+        Every Number is techinally a double. There is a way to get more space and thats by making 
+        a Number a BIGINT. this will make the Number a float.
+
+
+        Maths with Numbers:
+
+        Adding:
+            var a = 100;
+            var b = 201.0;
+            var c = a + b;
+            console.log(c);
+            //this will output 301 to the console
+            
+        Sub:
+            var a = 100;
+            var b = 201.0;
+            var c = a - b;
+            console.log(c);
+            //this will output -101 to the console
+        
+        Dividing:
+            var a = 100;
+            var b = 201.0;
+            var c = b / a;
+            console.log(c);
+            //this will output 2.01 to the console
+        
+        Multiplicating:
+            var a = 100;
+            var b = 201.0;
+            var c = b * a;
+            console.log(c);
+            //this will output 20100 to the console
+
+
+
+        Things to Note:
+            430          //Number
+            430.0        // same as 430
+            430 == 430.0 //true
+
+    Strings:
+
+        Strings are arrays of chars just like other languages. Althrough there is no char datatype in JS.
+       
+        A string object contains a few key functions.
+            For example,
+
+                string.length will give you the length of the string object.
+                string.split("") will split the string on a certain string.
+                string.match("") will find the index of any matches to a certain string.
+                string.substring(0,1) will return the portion of the string
+
+            There are many more but these are a few samples.
+        
+        
+        
+        There are mutlible ways to declare a string in js. all have their uses, 
+
+            Ex:
+
+                var a = "pineapples";
+                var b = `pineapples`;
+                var c = 'pineapples';
+                //these are all equal to.
+
+        Strings are techinally arrays of chars. 
+
+            Ex:
+
+                var a = "pineapples";
+                console.log(a[3])
+                //this will print e to the console
+
+        JS also lets you add variables into strings using the `` declaration
+
+            Ex:
+
+                var b = 32
+                var a = `${b} pineapples`;
+                console.log(a)
+                //this will print 32 pineapples to the console
+        
+        Adding Strings together
+
+            Ex: 
+
+                var a = "pine";
+                var b = "apples";
+                var c = a + b;
+                console.log(c);
+                //this will print pineapples to the console
+        
+        Adding Varibles to Strings
+
+            Ex: 
+                var a = "pine";
+                var b = 432;
+                var c = a + b;
+                console.log(c);
+                //this will print pine432 to the console
+
+        Subtracting Strings
+
+            Ex:
+                var a = "pine";
+                var b = "apples";
+                var c = a - b;
+                console.log(c);
+                //this will print NaN to the console
+
+            Note:
+                NaN means Not a Number.
+
+    Boolean:
+
+        Boolean are variables that are either true or false. 
+        
+        They can be declared using either true or false andor 1 or 0
+
+            Ex:
+                var a = true;
+                var b = 1;
+                //these two are equal too.
+
+        Boolean logic
+
+            And:
+                var a = true;
+                var b = false;
+                console.log(a && b);
+                //this will print false
+            
+            Or:
+                var a = true;
+                var b = false;
+                console.log(a || b);
+                //this will print true
+            
+            Not:
+                var a = true;
+                console.log(!a);
+                //this will print false
+            
+            Note: Logic in javascript is done sequential in pairs. 
+
+                Ex problem:
+                    var a = true;
+                    var b = true;
+                    var c = false;
+
+                    a && b && c //will be false
+                    a || b || c // will be true
+                    a || b && c // will be true
+                    a && b || c // will be true
+                    c && b || a // will be true
+
+            *Also to note, if an && statment starts with a false then JS will not run the other pair and just 
+            evaluate to false. This also the same for an or statement;
+
+                Ex:
+                    function a(){
+                        console.log("hello from a")
+                        return true;
+                    }
+                    var b = true;
+                    console.log(b || a());
+                    //this will not excute the a function and just print true
+
+                    var c = false;
+                    console.log(c && a());
+                    //this will not excute the a function and just print false
+
+Logic:
+
+    if and else statements are the most important thing in a coding language. They provide the developers ways to 
+    test and evaluate certain variables.
+
+        most commonly used is the default if else statement,
+
+            Ex:
+                if(condition){
+                    //code
+                } else{
+                    //code
+                }
+
+                or,
+
+                if(condition){
+                    //code
+                } else if(condition){
+                    //code
+                }
+
+            Note: Javascript also lets you see if a variable exists or not. checking any variable name without declaration
+            will result in a value of undefined. Javascript treats undefined as false for boolean logic. putting a not infront
+            of the variable will lead to a true evaluation. 
+            
+        another common declaration of if statements are as follows,
+
+            Ex:
+
+                if(condition) //code;
+                else //code;
+        
+        A less common but just as uses full is the conditional 
+        
+            Ex:
+
+                condition ? {code if true} : {code if false}
+
+
+Functions:
+
+    In javascript functions come in two types (synchronous and asynchronous). For now, just know that asynchronous
+    functions will return something called a promise.
+
+    There are a few ways to declare a function in javascript. The most common way is this
+
+        function {name}(){
+            //code to be done.
+        }
+
+        Note: there is no return type in javascript. you can return basically anything even another function.
+
+        Also can be done like this,
+
+        {name}()=>{
+            //code to be done
+        }
+
+        Note: => in javascript denotes a function. 
+
+    Other ways of declaration
+
+        Functions as variables:
+
+            var {name} = function (){
+                //code to be done
+            }
+
+            var {name} = ()=>{
+                //code to be done
+            }
+        
+        Functions in Objects:
+
+            class Rabbit{
+                constructor(name){
+                    this.name = name;
+                }
+                getName() {
+                    return this.name;
+                }
+            }
+            //getName is a function in the Rabbit class, which returns the name of the object
+
+
+
+
+Now that you have a basic grasp of the syntax used in Javascript its time for the more complex parts of the language.
+    
+
+        
+
+
+
+
