@@ -1,0 +1,618 @@
+Intermediate Javascript
+
+    Summary
+
+        - Loops
+        - Objects
+        - Classes
+        - Array Data Structure
+        - Recursion
+        - Callbacks
+        - Promises
+        - Async Functions
+        - NPM and Node
+
+Loops
+
+    Theres a few types of loops in JS. The purpose of loops is to run code more then once without coding over
+    and over again.
+
+    For Loops:
+
+        Most language have some implementation of for loops, JS is no different. For loops are usually used
+        to iteration code a number of times.
+
+            Ex:
+                 
+                Basic implementation:
+
+                    for(var i = 0; i < 10;i++){
+                        //code to run ten times.
+                    }
+
+                    for({variable};{condition};{iterator}){
+                        //code to run.
+                    }
+                
+                Advance implementation:
+
+                    Element iteration:
+
+                        var b = ["pineapple", "apple", "bob", "john"];
+                        for(var a of b){
+                            console.log(a);
+                        }
+                        //this will iterate through each index in the array and print it.
+
+                            Note: a is not equal to b[index], its a different variable with the same 
+                            value as b[index]
+
+                    Index iteration:
+
+                        var b = ["pineapple", "apple", "bob", "john"];
+                        for(var a in b){
+                            console.log(a);
+                        }
+                        //this will print the index number of each element in b.
+
+                            Note: a is the index of the iteration
+
+    
+    While Loops:
+
+        While loops continues until a certain condition is no longer true.
+
+            Ex:
+
+                While:
+
+                    while(condition){
+                        //this code will run until condition is false;
+                    }
+
+                Do While:
+
+                    do{
+                        //this code will run until condition is false;
+                    }while(condition)
+
+                    Note: a do while loop will run at least once. no matter if condition is false or not.
+    
+    Breaking Statements:
+
+        breaking statements are useful when you need to break out of a loop.
+
+        Continue statements are used to skip an iteration of a loop.
+
+            Ex:
+
+                for(var i =0; i < 10;i++){
+                   if(i == 2) continue;
+                   console.log(i);
+                }
+                //this will print all numbers between 0 and 9 but 2
+            
+        Break Statements are used to break out of a loop.
+
+            Ex:
+                for(var i =0; i < 10;i++){
+                   if(i == 2) break;
+                   console.log(i);
+                }
+                //this will print all numbers from 0 to 2, not including 2.
+
+Objects
+
+    Objects are arguably one of the most important data type in Javascript. Nearly everything is an object.
+    classes are Objects. functions are Objects. Integers are Objects. Object are how Javascript knows how to
+    do functions to data. 
+
+    JSON or Javascript Object Notion is a data-interchange format that makes organize and working with data
+    a lot easier. Using a key value format, JSON allows developers to map anything to another other Object.
+
+        Ex: 
+            {
+                "name": "BOB",
+                "age": 32,
+                "hasCar": false
+            }
+        
+            Note: this object contains the keys name, age and hasCar
+        
+    JSON Objects can be represented as strings. As long as the data can be stringified (Object can be turned into
+    string), then the JSON object can be printed into a String format. 
+
+        Note: JSON is the text format. ALL JSON objects are JavaScript Object Notation. But not all JavaScript
+        Object Notation are JSON. Many JavaScript Object Notation cant be converted to JSON text. 
+
+    Javascript provides a JSON Object already declared in the Environment. This Object contains important
+    methods that can be used to change and manipulate JSON objects. 
+
+        Important methods:
+
+            JSON.stringify
+
+                Stringify will take in a JSON object and give the stringified version of it.
+
+                    Note: this is important for sending and receiving JSON from and to servers through HTTP.
+                    JSON makes it easier for both the sender and receiver to communicate and have the same 
+                    information.
+                
+            JSON.parse
+
+                Parse is the antithesis of stringify. It will take a JSON object thats stringified and return
+                the object.
+
+                    Note: this is important for receiving a JSON object from a server or outside source.
+
+    Objects will have values attached to them. These values can be anything from just variables to whole functions
+
+        Ex: 
+            var person = {
+                name: "John",
+                age: 30,
+                hasCar: true
+            };
+
+            console.log(person.age)
+            //this will print 30
+
+        Ex:
+            var person = {
+                name: "John",
+                age: 30,
+                hasCar: true,
+                addAge: function() {
+                    this.age += 1;
+                },
+                getAge: function() {
+                    return this.age;
+                }
+            };
+            person.addAge();
+            console.log(person.getAge())
+            //this will print 31;
+
+Classes
+
+    Classes similar to classes in java are a way of preforming Object Oriented Programming in javascript.
+    they give a way to create objects by using blueprints of what they should be. Classes contain variables and
+    functions that act on those variables. 
+
+        Ex: 
+            class Person{
+                name;
+                getName(){
+                    return this.name;
+                }
+            }
+
+        Note: Classes may or may not contain constructors. constructors are used to create classes with certain
+        values.
+
+            Ex:
+                class Person{
+                    constructor(name){
+                        this.name = name;
+                    }
+                    getName(){
+                       return this.name;
+                    }
+                }
+
+    The this variable is the object itself. using this in a global context will return the global object. while
+    using this in a context of a class will return that class. To manipulate a variable in that class, this 
+    needs to be used. A good way to think about it is that this is the context itself. 
+
+        Note: this can also be used in a function will return the context variable of the function. Also,
+        arrow notation => and function notation will result with a different this behavior
+
+            Ex:
+                var person = {
+                    name: "John",
+                    age: 30,
+                    getArrow:()=>{
+                        return this.age;
+                    }
+                };
+                console.log(person.getArrow())
+                //this will print NaN
+    
+    To create a class used a class prototype use new;
+
+        Ex:
+
+            var john = new Person();
+
+            Note: not using new will just return the prototype
+
+Arrays
+
+    Arrays are an important data structure in JS, they provide a way to organize data into an easy to
+    understand data structure. Arrays organize data into an index based system. In JS any Object can be
+    organize into an array.
+
+        Ex: 
+            var a = [];
+            //a is an array of length 0
+        
+    An array object also has a bunch of different methods that can be used to change and manipulate
+
+        Length:
+
+            the length variable stores the length of the array.
+
+                Ex:
+                    var a = [ "john" , "bob", "matt"];
+                    console.log(a.length);
+                    //this will log 3 
+
+        Reverse:
+
+            the reverse function will reverse the array
+
+                Ex:
+                    var a = [ "john" , "bob", "matt"];
+                    a.reverse();
+                    //a will be ["matt", "bob", "john"]
+        
+        splice:
+
+            the splice function takes in two condition, one being the index to start from. and the other
+            the number of indexes from that index to remove.
+
+                Ex:
+                    var a = [ "john" , "bob", "matt"];
+                    a.splice(0, 2);
+                    //a will be [ "matt"]
+
+        Includes:
+
+            the includes function will change in an array includes a certain value. will return true if it does,
+            and false if not.
+
+                Ex:
+                    var a = [ "john" , "bob", "matt"];
+                    var b = a.includes("bob");
+                    //b will be true;
+
+        Maps:
+
+            maps will create a new array with a subset of the information in an array. Maps are used
+            to map objects to other objects.  
+
+                Ex: 
+
+                    var a = [
+                        {
+                            name:"John",
+                            age:19
+                        },
+                        {
+                            name: "Bob",
+                            age:21
+                        }
+                    ];
+                    var b = a.map(element =>{
+                        return {
+                            name: element.name
+                        }
+                    })
+                    // b will be an array containing objects with only name
+        
+        indexOf:
+
+            the indexOf function will return the index of a certain element.
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    var b = a.indexOf("matt")
+                    // b will be 2
+        
+        find:
+
+            the find function will return the first element that matches the condition. if none, it 
+            will return undefined
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    var b = a.find(element =>{
+                        return element == "bob"
+                    })
+                    //b will be "bob"
+        
+        findIndex:
+
+            the findIndex function will return the first element's index that matches the condition. if none,
+            it will return -1;
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    var b = a.find(element =>{
+                        return element == "bob"
+                    })
+                    //b will be 1
+
+        join:
+
+            the join function will join all the element together. Join can take a separator, which will join
+            all the element and put the separator in between.
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    var b = a.join(":")
+                    //b will be "john:bob:matt"
+        
+        pop:
+
+            the pop function will pop the last element off the array.
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    a.pop()
+                    //a will be [  "john" , "bob"]
+
+        shift:
+
+            the shift function similar to pop, will remove the first element from an array
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    a.shift()
+                    //a will be [ "bob", "matt"]
+        
+        unshift:
+
+            the unshift function will add an element to the beganing of an array
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    a.unshift("ben")
+                    //a will be ["ben", "john" , "bob", "matt"]
+
+        push:
+
+            the push function will add a element to the end of a array 
+
+                Ex:
+
+                    var a = [ "john" , "bob", "matt"];
+                    a.push("ben")
+                    //a will be [ "john" , "bob", "matt", "ben"]
+
+        sort: 
+
+            the sort function take a function and will sort an array based on comparisons. it will check every
+            element in the array with each other and sort the array. 
+
+                    If function returns < 0, this will sort the first element before the second.
+                    If function returns > 0, this will sort the first element after the second.
+                    If function returns 0, this will not change the arrangement of the elements
+
+                Ex:
+
+                    var a = [ 1 , 3, 4, 0, 5, 6];
+                    a.sort((b,c)=>{
+                        return b >  c ? 1 : -1;
+                    })
+                    //a will be [ 0, 1, 3, 4, 5, 6 ]
+
+Recursion
+
+    Recursion is a computer science concept that means a function is able to calling itself. 
+    In javascript recursion works the same way. 
+        
+        Ex:
+
+            function call(val = 10){
+                if(val <1){
+                    return;
+                }
+                console.log(val)
+                val = val -1;
+                call(val)
+            }
+            //this will print starting from 10 all the way down to 1
+
+        Ex:
+
+             function call(val = 10){
+                if(val <1){
+                    return;
+                }
+                val = val -1;
+                call(val)
+                console.log(val)
+            }
+            //this will print starting from 0 all the way to 9
+
+Callbacks
+
+    Callbacks are functions that get passed through to other function. These functions will be called
+    some time in the other function to pass values back to the other context. 
+
+        Ex:
+
+            function myCallback(name){
+                console.log(name);
+            } 
+
+            function getName(callback){
+                var name = "John";
+                callback(name);
+            }
+
+            getName(myCallback);
+            //this will print the name John to the console
+
+            Note: after getName gets the name, it passes it through to the callback function. 
+
+Promises
+
+    Promises are a way to implementation event centered coding. Promises are the building blocks of
+    asynchronous functions. 
+    
+    A promise can be one of these three states, pending or fulfilled or rejected
+
+        a pending promise means that javascript is waiting on an event to occur.
+
+        a fulfilled promise means that the promise has resolved without error.
+
+        a rejected promise means that the promise has errored.
+    
+    Promises have then and catch functions, which will execute when the promise is no longer pending.
+    then means that the promise has finished, and catch allows for error handling.
+
+    then contains two values, the return values and and err. if function returns without err. err will be null,
+    else it will contain an error object. catch always has an error object unless return value is given.
+
+        Ex:
+
+            var thePromise = new Promise((resolve, reject)=>{
+                resolve("NO ERROR");
+            })
+
+            thePromise.then((result)=>{
+                console.log(result)
+            })
+            //this will print the result of the promise after the promise has resolved.
+
+        Ex:
+
+            var thePromise = new Promise((resolve, reject)=>{
+                reject("ERROR");
+            })
+
+            thePromise.catch((err)=>{
+                console.log(err)
+            })
+            //this will print the error that resulted from the promise.
+
+    Promises are used to preform asynchronous code. After the promise resolves a callback is executed. 
+    Callbacks are passed through to the .then and .catch functions on the Promise Object. 
+
+Async
+
+    Async functions take in a callback and will call the callback once an event has executed. This makes
+    Async functions powerful for retrieving information from other source. ex: databases, websites, api, or files.
+    Initially, async functions will return a Promise that will eventually be resolved.
+
+    Async functions can be called without breaking the main pattern, they are used to retrieve data and use it
+    once received. 
+
+    Old Asynchronous:
+
+        Ex:
+
+            function logger(some) {
+                console.log(some)
+            }
+
+            function get(myCallback) {
+                var req = new XMLHttpRequest();
+                req.open('GET', "https://www.coffeedom.xyz/test.txt");
+                req.onload = function() {
+                    if (req.status == 200) {
+                        myCallback(this.responseText);
+                    } else {
+                        myCallback("Error: " + req.status);
+                    }
+                }
+                req.send();
+            }
+
+            get(logger); 
+
+            Note: this only works in browser
+    
+    Newer Asynchronous:
+
+        Ex:
+
+            import axios from "axios"
+            function logger(some) {
+                console.log(some)
+            }
+
+            async function get(){
+                var req = await axios.get("https://www.coffeedom.xyz/test.txt")
+                return req.data;
+            }
+
+            get().then(logger);
+
+    Async/await
+
+        Async await syntax allows developers to drastically simplify async coding. In an async function,
+        await tells the program to wait for a promise to resolve. This can be a promise or other async function.
+        
+            Ex:
+                
+                async function get(){
+                    var req = await axios.get("https://www.coffeedom.xyz/test.txt")
+                    return req.data;
+                }
+                //axios.get is also an async function that returns a promise. without the await the promise
+                //will resolve and there will be no way to use the data. 
+
+
+            Note: previous implementation of async required callbacks, which made it difficult to read JS. This was
+            known as callback hell.
+            
+                Ex:
+
+                    getName().then(name =>{
+                        getLastName().then(lastname=>{
+                            getAge().then(age=>{
+                                getJob().then(job=>{
+                                    getHousing().then(housing=>{
+                                        //code
+                                    })
+                                })
+                            })
+                        })
+                    })
+            
+                Async await implementation:
+
+                    Ex:
+
+                        var name = await getName();
+                        var lastName = await getLastName();
+                        var age = await getAge();
+                        var job = await getJob();
+                        var housing = await getHousing();
+                
+                    Note: await can ONLY be used in asynchronous functions.
+
+NPM and Node
+
+    Node.js is a framework that allows developers to run JavaScript native to the desktop. Using the V8 engine,
+    node can run standalone without a browser. Node is used to make JavaScript executables, whole applications
+    can be made with one language. 
+
+    With the help of Package Managers like NPM or yarn, developers have access to tons of code bases that give
+    them the abilities they need to make outstanding applications. 
+
+    How NPM works?
+
+        NPM organizes packages using a package.json file. this file contains the version information and how to
+        recreate your Environment on a different computer. When you add a dependency it will also get added to
+        the package.json file.
+
+            Note: yarn works in a similar way. 
+
+    Purpose?
+
+        NPM provides developers with a way to organize and recreate Environment on different computers. That way
+        developers can ensure that the code will run the same in different hardware. 
+                
+        
+    
