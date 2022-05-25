@@ -25,6 +25,8 @@ What is javascript?
             - no direct memory management (pointers and memory allocation is done by compiler)
             - Promises are a bit hard to grasp
             - the amount of frameworks might get overwhelming.
+            - interpreted 
+                Note: An interpreted language is a language that goes through an interpretor before being compiled
 
 
 Starting off

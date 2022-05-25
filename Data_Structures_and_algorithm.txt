@@ -1,0 +1,373 @@
+Data Structures And Algorithms
+
+    Algorithms
+
+        What are Algorithms?
+
+            Algorithms are one of the most important concepts in computer science. Many Programming 
+            interviews will test you on your ability to think about algorithm. But what does this 
+            mean? Algorithms can be anything that has steps. For example, the recipes to make an 
+            omelette is an algorithm because there is a sequence of steps to complete. If each step
+            is proformed correctly, the desired outcome will happen. That takes us to the second 
+            part of algorithm. Algorithms have to produce the desired outcome every time the task 
+            is ran. 
+
+            Algorithms are useful to find the shortest paths, or to find a element in a complex 
+            system. There are many different application to algorithm. The purpose of algorithms 
+            is to ensure task success.
+
+        Algorithmic Thinking
+
+            Lets say for example I have to get from my house to the liberty. I could try to every road until
+            I end up at the liberty but that could take as long as the universe just to get there. 
+
+            What if I can take some roads off the check list? 
+            What happens if I start from the destination to the start point? 
+            What assumptions can I make to make finding a path easier?
+
+            These questions allow a developer to cut down a bigger problem into steps. An algorithm can be
+            created thats able to take into account these questions and be able to slove the problem quickly
+            and effectively. Algorithmic thinking is an important tool a developer needs to be able to build
+            complex programs that slove programs.
+
+            The Algorithm to Algorithmic Thinking
+
+                Step One: What is the problem that needs to be sloved?
+                Step Two: what are the constraints of the problem?
+                Step Three: What assumptions can I make that will simplify the problem?
+                Step Four: What impact if any do this assumptions have on the outcome?
+                Step Five: How do I implementation these assumptions into an algorithm?
+            
+            Algorithmic thinking can help slove the problem of finding an element in a numerical sorted array. 
+
+                What assumption can we make in a sorted array?
+                    Firstly, if the array is sorted in numerical order one is able to infer that the elements
+                    to the left of a given element will be smaller, and the numbers to the right will be larger
+                    Thus, any element chosen at random will have this property. 
+                    Secondly, spliting the array down the middle will end up with the combination of the second
+                    half of the elements being bigger the the first half. 
+
+                Problem: given a numerical sorted array whose values contains 0-100 inculsive. Write an Algorithm
+                which is able to find any element in the array.
+
+                    One solution is to just go one by one through the array until you find the element. This 
+                    works, but can get slow as the array grows. One can imagine an array with 1000 elements.
+                    The worst case scenario would be to look for the element in the 1000 index in the array.
+                    The best case would be searching for the element in the first index. It would just take
+                    one comparison compared to the 1000 comparisons of the worst case. 
+
+                        Note: this method of searching is called linear search 
+
+                    Another solution takes into account the some of the inferences we made before. Since,
+                    a property of each element is the elements on the left are smaller and the right larger.
+                    A search algorithm can start at the middle of the array and go from there. We can chop the
+                    array in half each time and look at the element in the middle. If the element is smaller 
+                    then what we are searching for we only have to look to the right. If the element is larger
+                    we only have to look at the left side. After we do the same steps until the element we are 
+                    checking is the same element we are trying to find.
+
+                        Note: this method of searching is called binary search
+
+            
+        Big O notation:
+
+            Big O notation refers to a way of describing certain aspects of a data structure. Big O provides a way
+            to take about a data structures or algorithm without getting into the specifics of the ds or algorithm.
+            There are two types of Big O notation Time complexity, which is spilt into best case and worst case and 
+            sometimes average case, and Space complexity. Time complexity measures how long an algorithm takes to 
+            do a certain task. Space complexity measures how much space a data structure takes up in memory. 
+            small (n) refers to the number of elements in the data structure.
+
+            O(1) refers to constant time. 
+                Note: for any number of inputs the algorithm or data structure will do the task in a constant time.
+
+            O(n) refers to linear time.
+                Note: task time will increase linearly with more inputs.
+
+            O(n 2) refers to quadratic or exponential time.
+                Note: task time will increase exponential with more inputs 
+
+            O(n log n) refers to logarithmic time.
+                Note: task time will increase logarithmically 
+
+            O(n!) refers to factorial time.
+                Note: this is the worst case for a task.
+
+    Pointers And Memory:
+
+        Memory:
+
+            Memory is a storage location where computers store data. There are many different kinds of memory.
+            but for this article all you need to know is what is a memory location.
+
+        Memory location:
+
+            A memory location is just as its spoken a location in memory where a data point is storied.
+            depending on the type of computer memory locations are store bytes of data. A memory location
+            is the location where that data is in memory. I'll make another article on computer architecture
+            which will go into dept. But for now memory locations are places in memory in which data is stored. 
+
+        Pointers:
+
+            Pointers are memory addresses where data is stored. Pointers are useful for retrieving data out of
+            memory. In many cases, pointers are varibles that store the memory address of data. Think of them 
+            like a pin on a map, where the pin points to is the data. The pin marks the location of the place
+            so you can find it later on.
+
+
+
+    Data Structures
+
+        Data structures are a way of orgainizing data in memory so that their easier to recieve or change in the
+        furture. They provide an easy way to keep data in order, that way a developer can sort search or even
+        reorgainze the data to what the application needs. 
+
+        Arrays
+
+            Arrays are the arguably the most common data structure. Arrays are orgainized into sequential memory 
+            locations. Imagine, a long piece of tape. On this tape there are smaller chucks that can be written 
+            and wrote to. An array would be stored as chucks that are right next to each other on the tape. 
+            Think of arrays as a list of elements; each item on the list has a corresponding index.
+
+                Ex:
+                    ______ ______ ______ ______ ______ ______ ______ ______ 
+                    |  0 | |  1 | |  2 | |  3 | |  4 | |  5 | |  6 | |  7 |
+                    ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯ ¯¯¯¯¯¯
+
+                    Note: In most programming languages Arrays will start at the 0 index. 
+
+                Big O:
+                    Average case:
+                        O(1) access time  
+                        O(n) search time  
+                        O(n) insert time  
+                        O(n) delete time  
+
+                    Worst case:
+                        O(1) access time  
+                        O(n) search time  
+                        O(n) insert time  
+                        O(n) delete time  
+
+                    Space:
+                        O(n) 
+
+                Note: there are ways of organizing arrays so that the data inside can be easier to access. These cases
+                assume that the array in question has random organizion. Orgainizing data is really important for 
+                being able to speed up task times.
+
+            Java representation:
+
+                dataType []a;
+
+        Nodes:
+
+            Nodes are usually a struct or class that stores a data point and the location of the next data points
+            in a data struction. Nodes are useful because they can store basically dataType. 
+
+            Java representation:
+
+                class Node {
+                    int data; // Data that is stored
+                    Node next; // refrence to the next Node
+
+                    public Node(int data, Node next){
+                        this.data = data;
+                        this.next = next;
+                    }
+                }
+        
+        Linked List:
+
+            Linked lists are just nodes that are linked to one another. Create a node and then another that 
+            refrences that one and now you have a linked list. Anything that a node can store in linked list.
+
+            Ex:
+                    ______       ______      ______ 
+                    |12 P1|----> |21 P2|---->|30 /| 
+                    ¯¯¯¯¯¯       ¯¯¯¯¯¯      ¯¯¯¯¯¯ 
+                      n          n.next      n.next.next
+
+            Big O:
+                Average case:
+                    O(n) access time  
+                    O(n) search time  
+                    O(1) insert time  
+                    O(1) delete time  
+
+                Worst case:
+                    O(n) access time  
+                    O(n) search time  
+                    O(1) insert time  
+                    O(1) delete time  
+
+                Space:
+                    O(n) 
+
+            Java representation:
+
+                Node n = new Node(30,null);
+                n = new Node(21,n);
+                n = new Node(12,n);
+
+                //This will create a linked list that starts with Node(12) and ends with Node(30)
+
+                System.out.printLn(n.data)              // this will print 12
+                System.out.printLn(n.next.data)         // this will print 21
+                System.out.printLn(n.next.next.data)    // this will print 30 
+
+            Types of Linked Lists
+
+                Double Linked Lists 
+
+                    Each node in this type of linked list has a pointer to the previous node and the next node in the
+                    list. 
+
+                    Ex:
+                        _________ ---->   _________    ---->   _________ 
+                        |/ 12 P1|         |P0 21 P2|           |P1 30 /| 
+                        ¯¯¯¯¯¯¯¯¯ <----   ¯¯¯¯¯¯¯¯¯¯  <----    ¯¯¯¯¯¯¯¯¯
+                        
+
+                Circular Linked Lists
+
+                    This type of linked list is looped. Meaning what would have be the last node in the List
+                    points to the first node in the list.
+
+                        Note: Circular linked list can be both a singlur linked or double linked list
+
+                    Ex:
+                        _________ ---->   _________    ---->   _________ 
+                        |/ 12 P1|         |P0 21 P2|           |P1 30 P0| 
+                        ¯¯¯¯¯¯¯¯¯ <----   ¯¯¯¯¯¯¯¯¯¯  <----    ¯¯¯¯¯¯¯¯¯
+                            /\                                       |
+                            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+        Queues:
+
+            Queues are a first in first out structure. Kindof like a conveyor belt. The back of the queue is called the tail.
+            this is where elements are enqueued. The front of the queue is called the head. This is where elements are dequeue.
+            Queues are common when implementing data that requires routines.
+
+                Ex:
+
+                    F -----> | E D C B | ----> A
+
+                    Algorithm		Average	Worst case
+                        Space		O(n)	O(n)
+                        Search		O(n)	O(n)
+                        Insert		O(1)	O(1)
+                        Delete		O(1)	O(1) 
+        
+        Stacks:
+
+            Stacks are similar to queue but there last in first out. Imagine having a bunch of books. You stack them one by one.
+            to remove a book, you need to remove all the books above it. 
+
+
+                Ex:
+
+                    D ─────┐         ┌────> D
+                           ↓         |
+                           D         D
+                           C         C
+                           B         B
+                           A         A
+                        
+
+                    Algorithm		Average	Worst case
+                        Space		O(n)	O(n)
+                        Search		O(n)	O(n)
+                        Insert		O(1)	O(1)
+                        Delete		O(1)	O(1) 
+        
+        Trees:
+
+            Trees in my opinion are one of the more complicated data structures. Each node in the tree has atleast two children. 
+            refering nodes that represent the rest of the tree. Each node may have a reference to the parent node which is the 
+            node that referes to it. Trees are useful for organizing data so it can be traversed through recursively. Trees had
+            a root node, this node is like the entrance to the tree. all nodes without child nodes are called leaf nodes. There
+            the usually the final nodes of a branch. 
+
+                Ex:
+                                            A
+                                           / \
+                                          B   C
+                                         / \ / \
+                                        E  F G  H
+                                        
+                                        Note: this is an example of a full binary tree. In theses types of trees, each node either
+                                        has 0 or 2 child nodes. 
+
+            Types of Trees:
+
+                Basic/General Tree:
+
+                    A basic tree contains a very lose structure. Each node in the tree can have many child nodes. A very lost
+                    structure makes it easier to put data into basic trees but because of it makes it harder for algorithm to
+                    organize that data. Its also harder to traverse the entire tree as with each node there can be a ton of 
+                    child nodes.
+
+                        Ex:
+                                          A
+                                      / /   \  \
+                                B      C         E      F
+                               /     // \\      //      /\
+                               G    H I  J K   L M     N  O
+                
+                Binary Trees:
+
+                    In a binary tree each node contains at least two child nodes. Each node has a left and 
+                    right child. 
+
+                        Ex:
+                                           A
+                                          / \
+                                         B   C     Note: C only contains a right node. 
+                                        / \    \
+                                       D   E    F
+                
+                Binary Search Tree:
+
+                    In a binary search tree, each node contains a property. Any node to the left of that node will be smaller.
+                    Any node to the right will be larger.
+
+                        Ex:
+                                         D
+                                       /   \
+                                      B     F
+                                     / \   / \
+                                    A   C E   G
+
+                Red-Black Trees:
+
+                    In a red black tree each node is given a color of either red or black. This type of tree is self balancing.
+                    if a node is red then it must have two black nodes. Every path from a node to a leaf must go through the
+                    same number of black nodes. The count of black nodes from a node will be the same on every path. 
+
+                        Ex:                   black
+                                            /       \
+                                        red                 red
+                                      /     \             /     \
+                                   black   black        black     black 
+                                  /    \    / \          / \       /  \
+                                nill  nill nill nill   nill nill nill nill
+
+        Graphs:
+
+            A graph is like a map of nodes. Every node on a graph has a bunch of edge nodes. These are like connections.
+            A node in a graph is called a vertex. An edge is created when two nodes are connected to each other.
+
+            There are two main types of graphs. Undirected graphs in which the edges all have the same weight or no weight at all.
+            In this way trees can also be mapped as undirected graphs. The branches on a tree do not have a weight. A graph 
+            where the edges have a weight is called a directed graph. 
+
+            Lets say for example, I needed to find a path between two destinations. Each vertex on a graph can correspond to an
+            intersection while the roads can correspond to an edge. If all the roads where the same length then the weight of
+            the edge doesnt matter. This means that we can represent the road map with an undirected graph. But in reality,
+            roads come in all shapes and sizes. A directed graph would take into account the different sizes of road. 
+
+        
+        
+
+            
