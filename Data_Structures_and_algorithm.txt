@@ -5,8 +5,8 @@ Data Structures And Algorithms
         What are Algorithms?
 
             Algorithms are one of the most important concepts in computer science. Many Programming 
-            interviews will test you on your ability to think about algorithm. But what does this 
-            mean? Algorithms can be anything that has steps. For example, the recipes to make an 
+            interviewers will test you on your ability to think about algorithm. But what does this 
+            mean? Algorithms can be anything that has steps. For example, the recipe to make an 
             omelette is an algorithm because there is a sequence of steps to complete. If each step
             is proformed correctly, the desired outcome will happen. That takes us to the second 
             part of algorithm. Algorithms have to produce the desired outcome every time the task 
@@ -21,14 +21,14 @@ Data Structures And Algorithms
             Lets say for example I have to get from my house to the liberty. I could try to every road until
             I end up at the liberty but that could take as long as the universe just to get there. 
 
-            What if I can take some roads off the check list? 
-            What happens if I start from the destination to the start point? 
-            What assumptions can I make to make finding a path easier?
+                What if I can take some roads off the check list? 
+                What happens if I start from the destination to the start point? 
+                What assumptions can I make to make finding a path easier?
 
-            These questions allow a developer to cut down a bigger problem into steps. An algorithm can be
-            created thats able to take into account these questions and be able to slove the problem quickly
-            and effectively. Algorithmic thinking is an important tool a developer needs to be able to build
-            complex programs that slove programs.
+            These questions help a developer to cut down a bigger problem into steps. An algorithm can be
+            created can take these questions into accoun to slove the problem quickly and effectively. 
+            Algorithmic thinking is an important tool a developer needs to be able to build complex 
+            programs that slove programs.
 
             The Algorithm to Algorithmic Thinking
 
