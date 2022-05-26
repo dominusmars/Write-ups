@@ -1,0 +1,79 @@
+Classes and Objects
+
+    Class:
+
+        Classes are kindof like isolated contexts within code. They allow you to organize data in 
+        a way that it can be changed with functions. They allow developers to develop layers of 
+        abstraction in order to conduct certain functions.
+
+        Classes are prototypes of certain objects. For example lets say we want to create a
+        car Object. We need to create a class called Car. What does each car have? well it could
+        have miles drive, speed, lights, doors, wheels, type of fuel. 
+
+        Classes also contain ways of interacting with the object for example it might have a 
+        function that allows you to turn on and off the lights in the car. 
+
+        Why are Classes Important?
+
+            There are many reasons but many developers believe it makes it easier to understand 
+            and write code. Classes allow you to spilt up functions into what they do. Classes 
+            can also make it easier for a developer to debug code. The functions are spilt up
+            in such a way that if something is wrong a develop doesn't need to look through
+            the whole code base just to fix it.
+
+    JavaScript Representation:
+
+        class Car{
+            name;
+            speed;
+            miles;
+            lights;
+            numberOfDoors;
+            numberOfWheels;
+            typeOfFuel;
+            constructor(name,miles, numberOfDoors, numberOfWheels, typeOfFuel){
+                this.name = name;
+                this.speed = 0;
+                this.miles = miles;
+                this.lights = false;
+                this.numberOfDoors = numberOfDoors;
+                this.numberOfWheels;
+                this.typeOfFuel = typeOfFuel;
+            }
+            //getName this type of function is called a getter function. 
+            getName(){
+                return this.name;
+            } 
+            //setName this type of function is called a setter function.
+            setName(name){
+                this.name = name;
+            }
+            getSpeed(){
+                return this.speed;
+            }
+            setSpeed(speed){
+                this.speed = speed;
+            }
+            getMiles(){
+                return this.miles;
+            }
+            setMiles(miles){
+                this.miles = miles;
+            }
+            getLights(){
+                return this.lights;
+            }
+            toggleLights(){
+                this.lights = !this.lights;
+            }
+            getNumberOfDoors(){
+                return this.numberOfDoors;
+            }
+            getNumberOfWheels(){
+                return this.numberOfWheels;
+            }
+            getTypeOfFuel(){
+                return this.typeOfFuel;
+            }
+        }
+
