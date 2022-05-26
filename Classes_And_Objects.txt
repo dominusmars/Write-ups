@@ -3,8 +3,8 @@ Classes and Objects
     Class:
 
         Classes are kindof like isolated contexts within code. They allow you to organize data in 
-        a way that it can be changed with functions. They allow developers to develop layers of 
-        abstraction in order to conduct certain functions.
+        a way that data can be changed with functions. They also allow developers to develop 
+        layers of abstraction in order to organize certain functions. 
 
         Classes are prototypes of certain objects. For example lets say we want to create a
         car Object. We need to create a class called Car. What does each car have? well it could
