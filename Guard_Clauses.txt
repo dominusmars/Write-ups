@@ -1,0 +1,61 @@
+
+        How Guard Clauses make coding easier?
+    
+    Often times coding relys on the developer being able to take a bigger problem such, often into classes or 
+    functions that when put together give the code base the functionaity. It can be hard for a single developer
+    to keep track of every single function in a code base. When managing a code base alot of time can end up just 
+    reviewing how the code was coded in the first place. And often times its hard for a developer to name 
+    functions so that its easy remember what they do. There are many articles on the topic of naming functions but,
+    there isn't a consensus of how to name functions. Often companies will just adopt a naming scheme for its 
+    whole code base. Even within code language a developer is able to adopt any naming scheme. Most coding language
+    have comments which help developer document everything in the code base. Althrough comments usually end up
+    making the code bases messer. Where related functions will be far away from each other with large amount of
+    commenting in between. 
+
+    For these reason making sure that the code itself can be understood quickly can be important to the development of
+    applications. Clear code can help mitgate developer from being overwhelmed by big code bases as its makes it easier
+    for review and even refactoring of the code base. In this effort, Guard clauses of probably one of the most imporant
+    tools developers have to achieve this goal.
+
+    What are Guard Clauses?
+
+    Guard Clauses are condictionals that return the function if the condictionals is not meant. Often times in javascript,
+    there uses to filter out errors before a the rest of the function is executed but they can also make other functions 
+    easier to read. They provide a way to cut the amount of assumptions a developer needs to make and mitgate syntex errors
+    in code. The guard clause makes sure that the rest of the code in the function adheres to the condictional. There by,
+    removing assumptions a developer needs to make when coding the rest of the function.
+
+        Ex: 
+                With Guard Clauses:
+
+                    function getMaxFromArray(array){
+                        if(!array.length || array.length === 0) return null;
+                        if(array.length === 1) return a[0];
+
+                        var max = a[0];
+                        for(var i =1; i< a.length; i++){
+                            if(max < a[i]) max = a[i];
+                        }
+                        return max;
+                    }
+                
+                Without Guard Clauses:
+
+                    function getMaxFromArray(array){
+                        var max = a[0];
+                        for(var i =1; i< a.length; i++){
+                            if(max < a[i]) max = a[i];
+                        }
+                        return max
+                    }
+
+    Note: There isn't a good way to quantify the clearness of code. By traditional metrics these two function preform the same 
+    Althrough, the function without guard clauses will error if the variable given is not a array while the first one will not 
+    and just return null.
+    
+        Syntex Errors
+
+        Syntex errors are bugs in the code that are causes by using the wrong syntex. Many times syntex errors occur when 
+        developer forget what variable are suppose to be. Guard Clauses are a decent way to help counter this by providing a 
+        way to check for the needed varations of the variables before executing the rest of the code.  
+    
